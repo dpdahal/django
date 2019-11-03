@@ -1,0 +1,30 @@
+{% extends 'master/master.html' %}
+{% block content %}
+<div id="contentSection">
+    <h1>Product Details</h1>
+    {% for product in productDetailsData %}
+    <h3><a href="">{{product.title}}</a></h3>
+    <span class='label label-danger'>
+        {{product.posted_date}}
+    </span>
+
+    <span class='label label-success'>
+        Posted By {{product.posted_by|title}}
+    </span>
+    <span class='label label-info'>
+        Category {{product.category|title}}
+    </span>
+    <img src="{{product.image.url}}" class="img-responsive" alt="">
+    <p>
+        {{product.description|safe}}
+    </p>
+    <div class="fb-comments" data-href="http://127.0.0.1:8000/product-details/{{product.slug}}" data-width=""
+         data-numposts=""></div>
+
+    {% endfor %}
+
+
+</div>
+
+
+{% endblock %}
